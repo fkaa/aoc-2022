@@ -1,4 +1,4 @@
-#![feature(array_chunks, core_intrinsics)]
+#![feature(iter_array_chunks, array_chunks, core_intrinsics)]
 
 use aoc_runner_derive::aoc_lib;
 

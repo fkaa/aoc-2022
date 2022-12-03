@@ -14,6 +14,17 @@ pub fn part1(input: &str) -> u32 {
         .sum()
 }
 
+#[aoc(day3, part2)]
+pub fn part2(input: &str) -> u32 {
+    input
+        .trim_end_matches('\n')
+        .split('\n')
+        .map(|l| to_inventory_map(l.as_bytes()))
+        .array_chunks::<3>()
+        .map(|[a, b, c]| (a & b & c).trailing_zeros())
+        .sum()
+}
+
 fn to_inventory_map(chars: &[u8]) -> u64 {
     chars.iter().fold(0, |acc, c| acc | to_priority_bits(*c))
 }
